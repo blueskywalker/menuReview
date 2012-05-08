@@ -30,7 +30,7 @@ def main(argv):
     #host="http://localhost:8983/solr"
     
     s = solr.SolrConnection(host)
-     
+    
     #print rest['2223']    
     #sys.exit()
     
