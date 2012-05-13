@@ -78,6 +78,7 @@ def main(args):
         return
     
 #    makeListWithId(args[1],'listWithId.txt')
+
     generateThumbnail(args[1])   
         
 
