@@ -5,10 +5,10 @@ import urllib
 import urllib2
 from bs4 import BeautifulSoup
 
+
 def getImage(qry):
     
     host='http://www.bing.com/images/search?'
-    # query="q=%s&go=&qs=n&form=QBIR&pq=%s&sc=7-5&sp=-1&sk="% (urllib.quote(qry),urllib.quote(qry))
     query="q=%s&go=&qs=n&form=QBIR&pq=%s&sc=7-5&sp=-1&sk="% (urllib.quote(qry),urllib.quote(qry))
     url = host + query
 
@@ -34,6 +34,7 @@ def main(args):
     
     for menu in menus:
         try:
+            print "%s|%s" % (menu,getImage(menu))
             print >>OUT,"%s|%s" % (menu,getImage(menu))
             OUT.flush()
         except:

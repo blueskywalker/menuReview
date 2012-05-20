@@ -8,8 +8,8 @@ import time
 
 def getImage(qry):
     
-    url = "%s%s" % ('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=',
-                    urllib.quote(qry))
+    url = "%s%s%s" % ('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=',
+                    urllib.quote(qry),'&userip=50.131.148.185')
     
 #    print url
     request = urllib2.Request(url)
@@ -28,12 +28,19 @@ def main(args):
         return
     
     menus = open(args[1],"r").read().split('\n')
+    
+    OUT = open("images.txt","w")
+    
     for menu in menus:
         try:
             time.sleep(1)            
             print "%s|%s" % (menu,getImage(menu))
+            print >> OUT, "%s|%s" % (menu,getImage(menu))
+            OUT.flush()
         except:
             continue
+    
+    OUT.close()
     
 # now have some fun with the results...
 
